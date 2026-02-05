@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit Path - BULK Handbook</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #e0e0e0; background: #1c1c1e; }
+.container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.header { display: flex; align-items: center; justify-content: center; margin-bottom: 40px; padding: 20px; }
+.logo-link { display: flex; align-items: center; text-decoration: none; gap: 15px; transition: all 0.3s ease; }
+.logo-link:hover { transform: scale(1.05); }
+.logo-img { width: 50px; height: 50px; }
+.logo-text { font-family: 'Arial Black', Impact, sans-serif; font-size: 32px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+.content { background: linear-gradient(135deg, #2a2a2c 0%, #3a3a3c 100%); border: 2px solid #444; border-radius: 16px; padding: 50px; margin-bottom: 40px; transition: border-color 0.3s ease; }
+.content:hover { border-color: #666; }
+h1 { font-family: 'Arial Black', 'Impact', sans-serif; font-size: 36px; margin-bottom: 30px; font-weight: 900; color: #fff; letter-spacing: 0.5px; }
+h2 { font-family: 'Arial Black', sans-serif; font-size: 24px; margin-top: 40px; margin-bottom: 20px; font-weight: 900; color: #fff; letter-spacing: 0.3px; }
+h3 { font-family: 'Arial Black', sans-serif; font-size: 20px; margin-top: 20px; margin-bottom: 10px; color: #fff; font-weight: 800; }
+p { font-family: 'Helvetica Neue', Arial, sans-serif; margin-bottom: 20px; font-size: 17px; color: #d0d0d0; }
+strong { color: #fff; font-weight: 700; }
+.highlight, .process-step, .feature-box { background: rgba(255,255,255,0.08); border-left: 4px solid #bbb; padding: 20px; margin: 30px 0; border-radius: 8px; transition: all 0.3s ease; }
+.highlight:hover, .process-step:hover, .feature-box:hover { background: rgba(255,255,255,0.12); border-left-color: #fff; transform: translateX(5px); }
+.nav-links { display: flex; justify-content: space-between; margin-top: 40px; gap: 20px; }
+.nav-btn { font-family: 'Helvetica Neue', sans-serif; padding: 14px 28px; background: rgba(60,60,62,0.8); color: #ccc; text-decoration: none; border-radius: 10px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid rgba(255,255,255,0.2); font-weight: 600; font-size: 15px; }
+.nav-btn:hover { background: rgba(90,90,92,0.95); color: #fff; border-color: #bbb; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255,255,255,0.15); }
+.nav-btn:active { transform: translateY(-1px); }
+.stat-box { text-align: center; padding: 25px; background: rgba(255,255,255,0.08); border-radius: 12px; margin: 30px 0; transition: all 0.3s ease; }
+.stat-box:hover { background: rgba(255,255,255,0.12); transform: scale(1.02); }
+.stat-box .number { font-family: 'Arial Black', sans-serif; font-size: 48px; font-weight: 900; color: #fff; }
+.stat-box .label { font-family: 'Helvetica Neue', sans-serif; font-size: 16px; color: #aaa; margin-top: 10px; }
+.term { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #444; transition: all 0.3s ease; }
+.term:hover { padding-left: 10px; border-bottom-color: #666; }
+.term:last-child { border-bottom: none; }
+@media (max-width: 768px) { .content { padding: 30px 20px; } h1 { font-size: 28px; } .nav-links { flex-direction: column; } }</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="logo-link">
+                <img src="bulk-logo.png" alt="BULK Logo" class="logo-img">
+                <span class="logo-text">BULK</span>
+            </a>
+        </div>
+        <div class="content">
+            <h1>Commit Path</h1>
+            <p>The Commit Path is the bridge between BULK's high-speed off-chain world and Solana's blockchain. It takes all the trades happening in memory on the BULK Tile, proves they happened correctly using cryptographic signatures from validators, and writes that proof to Solana for permanent, trustless settlement.</p>
+            <h2>How Settlement Works</h2>
+            <div class="process-step">
+                <h3>Step 1: Collect State Changes</h3>
+                <p>The Commit Path reads the state deltas produced by the BULK Tile from BULK Db. These deltas represent what changed after trades executed—balance updates, position changes, order fills.</p>
+            </div>
+            <div class="process-step">
+                <h3>Step 2: Batch the Changes</h3>
+                <p>Instead of submitting every single trade to Solana individually, the Commit Path batches hundreds or thousands of trades together into a single settlement batch.</p>
+            </div>
+            <div class="process-step">
+                <h3>Step 3: Gather Validator Signatures</h3>
+                <p>The Commit Path coordinates with other validators to collect cryptographic signatures. Each validator signs the batch, attesting that they verified these trades happened correctly on their Tile.</p>
+            </div>
+            <div class="process-step">
+                <h3>Step 4: Aggregate Signatures</h3>
+                <p>Using BLS (Boneh-Lynn-Shacham) threshold signatures, all those individual validator signatures get combined into a single, compact signature.</p>
+            </div>
+            <div class="process-step">
+                <h3>Step 5: Submit to Solana</h3>
+                <p>The batched state changes plus the aggregated signature get submitted to Solana as a single transaction. Solana verifies the signature and updates the on-chain state accordingly.</p>
+            </div>
+            <h2>Why BLS Signatures?</h2>
+            <p>BLS signatures have a special property: they're aggregatable. If 100 validators each sign the same data, those 100 signatures can be mathematically combined into one signature that proves all 100 signed it.</p>
+            <div class="highlight">
+                <strong>The math checks out:</strong> Solana verifies that the aggregated signature is valid and represents enough validator stake to meet the quorum threshold.
+            </div>
+            <h2>The Key Insight</h2>
+            <p>The Commit Path embodies BULK's core design philosophy: do the fast work off-chain, prove it with cryptography, and settle it efficiently on-chain. This approach gives you centralized exchange performance with decentralized exchange security.</p>
+            <div class="nav-links">
+                <a href="bulk-db.html" class="nav-btn">← BULK Db</a>
+                <a href="glossary.html" class="nav-btn">Glossary →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

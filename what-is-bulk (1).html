@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is BULK? - BULK Handbook</title>
+    <style>* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.8; color: #e0e0e0; background: #1c1c1e; }
+.container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+.header { display: flex; align-items: center; justify-content: center; margin-bottom: 40px; padding: 20px; }
+.logo-link { display: flex; align-items: center; text-decoration: none; gap: 15px; transition: all 0.3s ease; }
+.logo-link:hover { transform: scale(1.05); }
+.logo-img { width: 50px; height: 50px; }
+.logo-text { font-family: 'Arial Black', Impact, sans-serif; font-size: 32px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+.content { background: linear-gradient(135deg, #2a2a2c 0%, #3a3a3c 100%); border: 2px solid #444; border-radius: 16px; padding: 50px; margin-bottom: 40px; transition: border-color 0.3s ease; }
+.content:hover { border-color: #666; }
+h1 { font-family: 'Arial Black', 'Impact', sans-serif; font-size: 36px; margin-bottom: 30px; font-weight: 900; color: #fff; letter-spacing: 0.5px; }
+h2 { font-family: 'Arial Black', sans-serif; font-size: 24px; margin-top: 40px; margin-bottom: 20px; font-weight: 900; color: #fff; letter-spacing: 0.3px; }
+h3 { font-family: 'Arial Black', sans-serif; font-size: 20px; margin-top: 20px; margin-bottom: 10px; color: #fff; font-weight: 800; }
+p { font-family: 'Helvetica Neue', Arial, sans-serif; margin-bottom: 20px; font-size: 17px; color: #d0d0d0; }
+strong { color: #fff; font-weight: 700; }
+.highlight, .process-step, .feature-box { background: rgba(255,255,255,0.08); border-left: 4px solid #bbb; padding: 20px; margin: 30px 0; border-radius: 8px; transition: all 0.3s ease; }
+.highlight:hover, .process-step:hover, .feature-box:hover { background: rgba(255,255,255,0.12); border-left-color: #fff; transform: translateX(5px); }
+.nav-links { display: flex; justify-content: space-between; margin-top: 40px; gap: 20px; }
+.nav-btn { font-family: 'Helvetica Neue', sans-serif; padding: 14px 28px; background: rgba(60,60,62,0.8); color: #ccc; text-decoration: none; border-radius: 10px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 2px solid rgba(255,255,255,0.2); font-weight: 600; font-size: 15px; }
+.nav-btn:hover { background: rgba(90,90,92,0.95); color: #fff; border-color: #bbb; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255,255,255,0.15); }
+.nav-btn:active { transform: translateY(-1px); }
+.stat-box { text-align: center; padding: 25px; background: rgba(255,255,255,0.08); border-radius: 12px; margin: 30px 0; transition: all 0.3s ease; }
+.stat-box:hover { background: rgba(255,255,255,0.12); transform: scale(1.02); }
+.stat-box .number { font-family: 'Arial Black', sans-serif; font-size: 48px; font-weight: 900; color: #fff; }
+.stat-box .label { font-family: 'Helvetica Neue', sans-serif; font-size: 16px; color: #aaa; margin-top: 10px; }
+.term { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #444; transition: all 0.3s ease; }
+.term:hover { padding-left: 10px; border-bottom-color: #666; }
+.term:last-child { border-bottom: none; }
+@media (max-width: 768px) { .content { padding: 30px 20px; } h1 { font-size: 28px; } .nav-links { flex-direction: column; } }</style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="logo-link">
+                <img src="bulk-logo.png" alt="BULK Logo" class="logo-img">
+                <span class="logo-text">BULK</span>
+            </a>
+        </div>
+        <div class="content">
+            <h1>What is BULK?</h1>
+            <p>BULK is a high-performance decentralized exchange (DEX) built on Solana that brings the speed of centralized exchanges to DeFi. It's designed to handle thousands of trades per second with millisecond latency—something traditional DEXs struggle to achieve.</p>
+            <h2>The Problem BULK Solves</h2>
+            <p>Traditional decentralized exchanges are slow. Every trade has to wait for the blockchain to process it, which can take seconds. For high-frequency traders, arbitrageurs, and market makers, this delay is unacceptable. They need instant execution, just like on centralized exchanges.</p>
+            <p>But centralized exchanges have their own problems: you don't control your funds, they can freeze your account, and you have to trust them not to manipulate trades or get hacked.</p>
+            <div class="highlight">
+                <strong>BULK gives you the best of both worlds:</strong> the performance of a centralized exchange with the security and transparency of a DEX.
+            </div>
+            <h2>How BULK is Different</h2>
+            <p>Most DEXs run entirely on the blockchain. Every order, every match, every update happens on-chain, which makes them slow and expensive.</p>
+            <p>BULK takes a different approach. It splits trading into two parts:</p>
+            <p><strong>1. Off-chain execution:</strong> Orders are matched in memory on validator nodes at lightning speed. This happens in milliseconds, just like a centralized exchange.</p>
+            <p><strong>2. On-chain settlement:</strong> The results of all those trades get batched together and written to Solana's blockchain periodically. This gives you blockchain-level security without blockchain-level slowness.</p>
+            <h2>Who is BULK For?</h2>
+            <p>BULK is built for traders who demand performance. That includes:</p>
+            <p><strong>High-frequency traders</strong> who need to execute thousands of trades quickly.</p>
+            <p><strong>Market makers</strong> who provide liquidity and need instant order execution.</p>
+            <p><strong>Arbitrageurs</strong> who profit from price differences across exchanges and need speed to capitalize on opportunities.</p>
+            <p><strong>Professional traders</strong> who want centralized exchange performance without giving up custody of their assets.</p>
+            <h2>The Key Takeaway</h2>
+            <p>BULK is a trading platform that operates at the speed of centralized exchanges while keeping your funds secure and under your control. It achieves this by running a high-speed matching engine off-chain, then proving all trades happened correctly by settling them on Solana's blockchain.</p>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">← Back to Home</a>
+                <a href="why-bulk.html" class="nav-btn">Why BULK Exists →</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
